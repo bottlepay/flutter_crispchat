@@ -1,8 +1,7 @@
 name: flutter_crispchat
 description: A flutter wrapper around the Crisp mobile SDK for iOS and Android.
 version: 0.0.1
-author:
-homepage:
+homepage: https://github.com/bottlepay/flutter_crispchat
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
