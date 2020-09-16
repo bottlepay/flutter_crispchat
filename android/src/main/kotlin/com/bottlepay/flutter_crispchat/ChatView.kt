@@ -8,6 +8,7 @@ class ChatView : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         overridePendingTransition(R.anim.slide_up, 0);
+        actionBar?.hide();
         setContentView(R.layout.activity_chat_view)
     }
 

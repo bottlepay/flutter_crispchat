@@ -69,8 +69,6 @@ class FlutterCrispChat {
 
   /// Logout the user
   Future<void> logout() async {
-    _ensureConfigured();
-
     await _channel.invokeMethod('logout');
   }
 }
