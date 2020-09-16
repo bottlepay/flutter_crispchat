@@ -46,14 +46,28 @@ class FlutterCrispChatPluginImpl(_binaryMessenger: BinaryMessenger) {
     }
 
     fun setUserDetails(call: MethodCall, result: Result) {
+        val email = call.argument<String>("email")
+        val nickname = call.argument<String>("nickname")
+        val phone = call.argument<String>("phone")
+        val avatarUrl = call.argument<String>("avatarUrl")
+
+        Crisp.User.setEmail(email)
+        Crisp.User.setNickname(nickname)
+        Crisp.User.setPhone(phone)
+        Crisp.User.setAvatar(avatarUrl)
         result.success(null)
     }
 
     fun setCustomField(call: MethodCall, result: Result) {
+        val key = call.argument<String>("key")
+        val value = call.argument<String>("value")
+
+        Crisp.Session.setData(key, value)
         result.success(null)
     }
 
     fun logout(call: MethodCall, result: Result) {
+        Crisp.Session.reset()
         result.success(null)
     }
 }
