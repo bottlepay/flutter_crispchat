@@ -1,13 +1,12 @@
 package com.bottlepay.flutter_crispchat
 
 import android.app.Application
+import android.content.Intent
 import im.crisp.sdk.Crisp
 import io.flutter.Log
 import io.flutter.plugin.common.BinaryMessenger
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel.Result
-import org.json.JSONException
-import org.json.JSONObject
 
 class FlutterCrispChatPluginImpl(_binaryMessenger: BinaryMessenger) {
     private var application: Application? = null
@@ -33,6 +32,12 @@ class FlutterCrispChatPluginImpl(_binaryMessenger: BinaryMessenger) {
     }
 
     fun showChat(call: MethodCall, result: Result) {
+        if (application != null) {
+            var intent = Intent(application!!.applicationContext, ChatView::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            application!!.applicationContext.applicationContext.startActivity(intent)
+            application!!.applicationContext.overridePendingTransition(R.anim.hold, R.anim.fade_in);
+        }
         result.success(null)
     }
 
