@@ -35,10 +35,14 @@ class FlutterCrispChatPluginImpl(_binaryMessenger: BinaryMessenger) {
         if (application != null) {
             var intent = Intent(application!!.applicationContext, ChatView::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+
+            // Return back to Flutter to unlock the UI
+            result.success(null)
+
+            // Launch the chat UI
             application!!.applicationContext.applicationContext.startActivity(intent)
-            application!!.applicationContext.overridePendingTransition(R.anim.hold, R.anim.fade_in);
         }
-        result.success(null)
+
     }
 
     fun setUserDetails(call: MethodCall, result: Result) {
