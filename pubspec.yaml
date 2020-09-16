@@ -28,11 +28,10 @@ flutter:
   plugin:
     platforms:
       android:
-        package: com.example.flutter_crispchat
-        pluginClass: FlutterCrispchatPlugin
+        package: com.bottlepay.flutter_crispchat
+        pluginClass: FlutterCrispChatPlugin
       ios:
-        pluginClass: FlutterCrispchatPlugin
-
+        pluginClass: FlutterCrispChatPlugin
   # To add assets to your plugin package, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
@@ -43,7 +42,6 @@ flutter:
   #
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
-
   # To add custom fonts to your plugin package, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a

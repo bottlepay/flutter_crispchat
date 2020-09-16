@@ -12,7 +12,7 @@ class StreamHandler {
   }
 
   final _onUpdateUnreadCount = const EventChannel(
-      'com.bottle.pay.flutter_acquireio/streams/onUpdateUnreadCount');
+      'com.bottlepay.flutter_crispchat/streams/onUpdateUnreadCount');
   final _onUpdateUnreadCountController = StreamController<int>();
   Stream<int> get onUpdateUnreadCount =>
       _onUpdateUnreadCountController.stream.asBroadcastStream();

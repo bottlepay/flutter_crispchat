@@ -10,7 +10,7 @@ class FlutterCrispChat {
 
   /// Method channel
   MethodChannel _channel =
-      const MethodChannel('com.bottle.pay.flutter_acquireio');
+      const MethodChannel('com.bottlepay.flutter_crispchat');
 
   /// Throws if configure has not been called yet.
   void _ensureConfigured() =>

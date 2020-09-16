@@ -2,7 +2,7 @@ import Flutter
 import UIKit
 import Crisp
 
-public class SwiftFlutterCrispchatPlugin: NSObject, FlutterPlugin {
+public class SwiftFlutterCrispChatPlugin: NSObject, FlutterPlugin {
   init(_ binaryMessenger: FlutterBinaryMessenger) {
     onUpdateUnreadCountStream = FlutterStreamFactory(binaryMessenger, "onUpdateUnreadCount")
   }
@@ -11,8 +11,8 @@ public class SwiftFlutterCrispchatPlugin: NSObject, FlutterPlugin {
   
   
   public static func register(with registrar: FlutterPluginRegistrar) {
-    let channel = FlutterMethodChannel(name: "flutter_crispchat", binaryMessenger: registrar.messenger())
-    let instance = SwiftFlutterCrispchatPlugin(registrar.messenger())
+    let channel = FlutterMethodChannel(name: "com.bottlepay.flutter_crispchat", binaryMessenger: registrar.messenger())
+    let instance = SwiftFlutterCrispChatPlugin(registrar.messenger())
     registrar.addMethodCallDelegate(instance, channel: channel)
   }
   
@@ -38,10 +38,20 @@ public class SwiftFlutterCrispchatPlugin: NSObject, FlutterPlugin {
     let websiteId = arguments["websiteId"] as! String
     
     CrispSDK.configure(websiteID: websiteId)
+    result(nil)
   }
   
   public func showChat(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
-//    CrispChatViewController().presentChat(self)
+    
+    
+    if let rootVC = UIApplication.shared.keyWindow?.rootViewController {
+      rootVC.present(ChatViewController(), animated: true)
+      result(nil)
+    } else {
+      print("There is no root vc at the moment")
+      result(FlutterError(code: "PLATFORM_ERROR", message: "No root VC available to present", details: nil))
+    }
+    
     result(nil)
   }
   
@@ -82,24 +92,11 @@ public class SwiftFlutterCrispchatPlugin: NSObject, FlutterPlugin {
   }
 }
 
-// Chat view controller
-//class CrispChatViewController: UIViewController {
-//
-//  override func viewDidLoad() {
-//    super.viewDidLoad()
-//    // Do any additional setup after loading the view.
-//  }
-//
-//  @IBAction func presentChat(_ sender: Any) {
-//    self.present(ChatViewController(), animated: true)
-//  }
-//}
-
 // Create a new flutter stream
 public class FlutterStreamFactory: NSObject, FlutterStreamHandler {
   init(_ binaryMessenger: FlutterBinaryMessenger, _ streamName: String) {
     super.init()
-    FlutterEventChannel(name: "com.bottle.pay.flutter_acquireio/streams/\(streamName)", binaryMessenger: binaryMessenger).setStreamHandler(self)
+    FlutterEventChannel(name: "com.bottlepay.flutter_crispchat/streams/\(streamName)", binaryMessenger: binaryMessenger).setStreamHandler(self)
   }
   
   // This is what events will be published to

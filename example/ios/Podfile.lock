@@ -1,11 +1,17 @@
 PODS:
+  - Crisp (1.0.3)
   - Flutter (1.0.0)
   - flutter_crispchat (0.0.1):
+    - Crisp (~> 1.0.3)
     - Flutter
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
   - flutter_crispchat (from `.symlinks/plugins/flutter_crispchat/ios`)
+
+SPEC REPOS:
+  trunk:
+    - Crisp
 
 EXTERNAL SOURCES:
   Flutter:
@@ -14,8 +20,9 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/flutter_crispchat/ios"
 
 SPEC CHECKSUMS:
+  Crisp: 25e6203d6387904611b093fd969c27c92d713501
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
-  flutter_crispchat: 18cbe2d7cad3855aa2a3536449c8e1e95baf7e15
+  flutter_crispchat: ff1b6f0d7d4d573e0d20c4ae73843e2193ba181d
 
 PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
 

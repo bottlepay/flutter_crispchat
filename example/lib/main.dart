@@ -33,7 +33,9 @@ class _MyAppState extends State<MyApp> {
               RaisedButton(
                 child: Text('Configure'),
                 onPressed: () async {
-                  await FlutterCrispChat().configure('f193b');
+                  await FlutterCrispChat().configure(
+                    'YOUR-WEBSITE-ID-HERE',
+                  );
                 },
               ),
               RaisedButton(

@@ -1,4 +1,4 @@
-group 'com.example.flutter_crispchat'
+group 'com.bottlepay.flutter_crispchat'
 version '1.0-SNAPSHOT'
 
 buildscript {
@@ -6,6 +6,9 @@ buildscript {
     repositories {
         google()
         jcenter()
+        maven {
+            url "https://dl.bintray.com/crispim/crisp-maven"
+        }
     }
 
     dependencies {
@@ -40,4 +43,5 @@ android {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'im.crisp:crisp-sdk:0.1.15'
 }
