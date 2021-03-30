@@ -13,8 +13,8 @@ class StreamHandler {
 
   final _onUpdateUnreadCount = const EventChannel(
       'com.bottlepay.flutter_crispchat/streams/onUpdateUnreadCount');
-  final _onUpdateUnreadCountController = StreamController<int>();
-  Stream<int> get onUpdateUnreadCount =>
+  final _onUpdateUnreadCountController = StreamController<int?>();
+  Stream<int?> get onUpdateUnreadCount =>
       _onUpdateUnreadCountController.stream.asBroadcastStream();
 
   /// Call this to clean up streams

@@ -38,11 +38,11 @@ class FlutterCrispChat {
 
   /// Set a visitor identifier for your visitor, can be tracked by admin in remark.
   Future<void> setUserDetails({
-    String email,
-    String nickname,
-    String phone,
-    String avatarUrl,
-    String company,
+    String? email,
+    String? nickname,
+    String? phone,
+    String? avatarUrl,
+    String? company,
   }) async {
     _ensureConfigured();
 
